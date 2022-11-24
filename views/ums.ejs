@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMS</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://kit.fontawesome.com/abc91cab4a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h2>USER MANAGEMENT SYSTEM</h2>
+        </div>
+        <div class="user-container" id="#ums">
+            <div class="users">
+                <a href="#user" class="tab-open">New Users <i class="fa-solid fa-user"></i></a>
+
+                <table id="usertable">
+                    <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Gender</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+
+                    <% userDAta.forEach((data) => { %>
+                        <tr>
+                            <td><%= data.name %></td>
+                            <td><%= data.email %></td>
+                            <td><%= data.gender %></td>
+                            <td><%= data.status %></td>
+                            <td><div class="action">
+                                
+                                <form action="/update" method="post">
+                                    <a href="/update?id=<%= data.id %>"><i class="fa-solid fa-pen"></i></a>
+                                </form>
+                                
+                                
+                                <form action="/delete" method="post">
+                                    <button type="submit" name="deleted" value="<%= data._id %>"><i class="fa-solid fa-x"></i></button>
+                                </form>
+                            </div></td>
+                                
+                        </tr>
+                        
+                   <% }); %>
+                    
+                  </table>
+            </div>
+        </div>
+        <div class="new-user-container hide" id="user">
+            <h1><a href="#ums" class="tab-close"><i class="fa-solid fa-arrow-left"></i></a></h1>
+            <div class="new-user">
+                <h2>New User</h2>
+                <p class="gray">Use the below form to create a new account</p>
+
+                <form action="/" method="post">
+                    <div class="form">
+                        <p for="Name" class="gray">Name</p>
+                        <input type="text" name="name" placeholder="Name" id="">
+                    </div>
+                    <div class="form">
+                        <p for="Email" class="gray">Email</p>
+                        <input type="text" name="email" placeholder="Name" id="">
+                    </div>
+                    <div class="form">
+                        <label for="gender" class="gray">Gender</label>
+                        <input type="radio" name="gender" value="male" id="1">Male
+                        <input type="radio" name="gender" value="female" id="2">Female
+                    </div>
+                    <div class="form">
+                        <label for="Status" class="gray">Status</label>
+                        <input type="radio" name="status" value="active" id="1">Active
+                        <input type="radio" name="status" value="inactive" id="2">Inactive
+                    </div>
+                    <input type="submit" value="Save">
+                </form>
+            </div>
+        </div>
+       
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>

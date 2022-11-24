@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMS</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://kit.fontawesome.com/abc91cab4a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h2>USER MANAGEMENT SYSTEM</h2>
+        </div>
+        <div class="update-user-container" id="user">
+            <h1><a href="/" class="update-close"><i class="fa-solid fa-arrow-left"></i></a></h1>
+            <div class="new-user">
+                <h2>Update User</h2>
+                <p class="gray">Use the below form to update a user account</p>
+
+                <form action="/update" method="post">
+                    <div class="form">
+                        <p for="Name" class="gray">Name</p>
+                        <input type="text" name="name" placeholder="Name" id="">
+                    </div>
+                    <div class="form">
+                        <p for="Email" class="gray">Email</p>
+                        <input type="text" name="email" placeholder="Name" id="">
+                    </div>
+                    <div class="form">
+                        <label for="gender" class="gray">Gender</label>
+                        <input type="radio" name="gender" value="male" id="1">Male
+                        <input type="radio" name="gender" value="female" id="2">Female
+                    </div>
+                    <div class="form">
+                        <label for="Status" class="gray">Status</label>
+                        <input type="radio" name="status" value="active" id="1">Active
+                        <input type="radio" name="status" value="inactive" id="2">Inactive
+                    </div>
+                    <input type="submit" value="Save">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>
