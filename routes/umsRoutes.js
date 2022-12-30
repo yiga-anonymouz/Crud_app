@@ -1,5 +1,5 @@
 const express = require('express');
-const Controller = require("../controller/controller")
+const Controller = require(`${__dirname}/controller/controller`)
 const router = express.Router()
 
 const PORT = 3000
