@@ -2,7 +2,6 @@ const express = require('express')
 const https = require('https')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-const uniRl = require('url')
 const emailvalidator = require("email-validator")
 const router = require("./routes/umsRoutes")
 
@@ -40,29 +39,6 @@ app.post('/delete' , (req , res) => {
         }
     })
 })
-
-
-
-app.get('/update', (req, res) => {
-
-    const PORT = 3000
-    
-    const protocol = req.protocol;
-    const host = req.hostname;
-    const url = req.originalUrl;
-    const port = process.env.PORT || PORT;
-
-    const fullUrl = `${protocol}://${host}:${port}${url}`
-
-    const q = uniRl.parse(fullUrl , true)
-    const qdata = q.query
-
-
-
-
-    res.render('update', )
-})
-
 
 let port = process.env.PORT;
 if (port == null || port == "") {

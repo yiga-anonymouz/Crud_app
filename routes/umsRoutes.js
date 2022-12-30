@@ -1,26 +1,15 @@
 const express = require('express');
-const Users = require("../models/ums")
+const Controller = require("../controller/controller")
 const router = express.Router()
 
-router.get('/', (req, res) => {
-    Users.find({'id': 1}, (err, userDatas) => {
-        res.render('ums', {userDAta : userDatas})
-    })
-})
+const PORT = 3000
 
-router.post('/' , (req, res) => {
-    const inputData = {
-        name: req.body.name,
-        email: req.body.email,
-        gender: req.body.gender,
-        status: req.body.status,
-        modified: false
-    }
-    const inputs = new Users(inputData);
-    
-    inputs.save()
-    
-    res.redirect('/');
-})
+router.get('/', Controller.ums_index)
+
+router.post('/' , Controller.ums_insert)
+
+router.get('/update', Controller.ums_update_index)
+
+router.post('/update', Controller.ums_update_insert)
 
 module.exports = router
