@@ -20,3 +20,13 @@
 .users{
     text-align: center;
 }
+
+.error{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    border: 1px solid red;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -2,7 +2,6 @@ const express = require('express')
 const https = require('https')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-const emailvalidator = require("email-validator")
 const router = require("./routes/umsRoutes")
 
 const app = express()
@@ -26,19 +25,6 @@ let customers = []
 
 app.use(router)
 
-app.post('/delete' , (req , res) => {
-    console.log(req.body)
-    const deletedId = req.body.deleted
-
-    Users.findByIdAndRemove(deletedId, (err) => {
-        if(err){
-            console.log(err)
-        }else{
-            console.log('successful')
-            res.redirect('/')
-        }
-    })
-})
 
 let port = process.env.PORT;
 if (port == null || port == "") {

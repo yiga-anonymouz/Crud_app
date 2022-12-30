@@ -12,4 +12,8 @@ router.get('/update', Controller.ums_update_index)
 
 router.post('/update', Controller.ums_update_insert)
 
+router.post('/delete', Controller.ums_delete)
+
+router.use(Controller.not_found)
+
 module.exports = router
